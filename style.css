@@ -1,0 +1,437 @@
+/* ==========================================================
+   RESET & BASE
+   ========================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #222;
+  line-height: 1.5;
+  background: #f5f6fa;
+  padding-bottom: 80px; /* room for the floating badge */
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ==========================================================
+   SITE HEADER (navy)
+   ========================================================== */
+.site-header {
+  background: #0b1f44;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fff;
+}
+
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 3px;
+}
+
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-name { font-weight: 800; font-size: 1.05rem; color: #fff; }
+.brand-sub {
+  font-size: 0.7rem;
+  color: #00b4ff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.site-nav a {
+  color: #cfd8ea;
+  padding: 0.4rem 0;
+  transition: color 0.15s ease;
+  position: relative;
+}
+
+.site-nav a:hover,
+.site-nav a.active { color: #00b4ff; }
+
+.site-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 2px;
+  background: #00b4ff;
+  border-radius: 2px;
+}
+
+/* ==========================================================
+   HERO BANNER
+   ========================================================== */
+.hero {
+  background: linear-gradient(135deg, #0b1f44 0%, #1a3a7a 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1.2fr 1fr;
+    padding: 3.5rem 1rem;
+  }
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.hero-text h1 span { color: #00b4ff; }
+
+.hero-text p {
+  color: #cfd8ea;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  max-width: 44ch;
+}
+
+.hero-btn {
+  display: inline-block;
+  background: #00b4ff;
+  color: #0b1f44;
+  padding: 0.75rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background 0.15s ease;
+}
+
+.hero-btn:hover { background: #33c5ff; }
+
+.hero-image img {
+  width: 100%;
+  border-radius: 12px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .hero-image { display: none; }
+  .hero-text h1 { font-size: 1.6rem; }
+}
+
+/* ==========================================================
+   MAIN + SECTION TITLES
+   ========================================================== */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  color: #0b1f44;
+  margin: 1rem 0 1rem;
+  font-weight: 700;
+}
+
+/* ==========================================================
+   PRODUCT GRID
+   ========================================================== */
+#product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.75rem;
+  color: inherit;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #eee;
+}
+
+.card h3 { font-size: 1rem; margin: 0.6rem 0 0.25rem; color: #0b1f44; }
+.card .specs { font-size: 0.8rem; color: #666; flex-grow: 1; }
+.card .price {
+  font-weight: 700;
+  color: #0a7f5a;
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================
+   PRODUCT DETAIL
+   ========================================================== */
+.detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 700px) {
+  .detail { grid-template-columns: 1fr 1fr; }
+}
+
+.detail img {
+  width: 100%;
+  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #eee;
+}
+
+.info h1 { font-size: 1.6rem; margin-bottom: 0.5rem; color: #0b1f44; }
+.info .specs { color: #666; font-size: 0.95rem; }
+.info .desc { margin: 0.75rem 0; color: #444; }
+.info .price { font-size: 1.5rem; font-weight: 700; color: #0a7f5a; margin: 1rem 0; }
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+.actions { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0; }
+
+.btn {
+  display: block;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #222;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: opacity 0.15s ease;
+}
+
+.btn:hover { opacity: 0.85; }
+.btn.whatsapp { background: #25d366; color: #fff; border-color: #25d366; }
+.btn.maps { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+
+/* ==========================================================
+   SELLER BOX
+   ========================================================== */
+.seller {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.seller h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.seller p { margin-bottom: 0.25rem; font-size: 0.95rem; }
+
+/* ==========================================================
+   NOT FOUND
+   ========================================================== */
+.not-found { text-align: center; padding: 3rem 1rem; color: #666; }
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.site-footer {
+  background: #0b1f44;
+  color: #cfd8ea;
+  margin-top: 3rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .footer-inner { grid-template-columns: 1.5fr 1fr 1fr; }
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand p { font-size: 0.85rem; color: #a5b8d8; max-width: 30ch; }
+
+.footer-col h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #00b4ff;
+  margin-bottom: 0.75rem;
+}
+
+.footer-col a,
+.footer-col p {
+  display: block;
+  font-size: 0.88rem;
+  color: #cfd8ea;
+  margin-bottom: 0.4rem;
+  transition: color 0.15s ease;
+}
+
+.footer-col a:hover { color: #00b4ff; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.78rem;
+  color: #8896b3;
+}
+
+/* ==========================================================
+   MWANANCHI FLOATING BADGE
+   ========================================================== */
+.mds-badge {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 360px;
+  padding: 10px 12px 10px 10px;
+  background: linear-gradient(135deg, #0b1f44 0%, #1a3a7a 100%);
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  border: 1px solid rgba(0, 180, 255, 0.25);
+}
+
+.mds-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.mds-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+  padding: 3px;
+}
+
+.mds-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.mds-text strong { font-size: 0.85rem; color: #fff; }
+.mds-text span { font-size: 0.72rem; color: #a5c4ff; }
+
+.mds-cta {
+  margin-left: auto;
+  padding: 7px 11px;
+  background: #00b4ff;
+  color: #0b1f44;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+
+.mds-badge:hover .mds-cta { background: #33c5ff; }
+
+@media (max-width: 480px) {
+  .mds-badge {
+    padding: 8px;
+    gap: 0;
+    max-width: none;
+    border-radius: 50%;
+  }
+  .mds-text, .mds-cta { display: none; }
+  .mds-logo { width: 48px; height: 48px; border-radius: 50%; background: transparent; padding: 0; }
+}
+
+/* ==========================================================
+   MOBILE NAV TWEAKS
+   ========================================================== */
+@media (max-width: 560px) {
+  .site-nav { gap: 0.75rem; font-size: 0.82rem; }
+  .brand-name { font-size: 0.95rem; }
+  .brand-sub { font-size: 0.62rem; }
+  .header-inner { padding: 0.6rem 0.75rem; }
+}
