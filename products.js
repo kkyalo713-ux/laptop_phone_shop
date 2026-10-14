@@ -54,10 +54,10 @@ const products = [
 
 // Seller info — the single seller for this shop.
 const seller = {
-  name: "TechHub Nairobi",
-  phone: "+254712345678",
-  whatsapp: "+254712345678",
-  location: "Ronald Ngala Street, Nairobi",
-  lat: -1.2841,
-  lng: 36.8233,
+  name: "Mwananchi Digital Solutions TechHub",
+  phone: "+254114135647",
+  whatsapp: "+254757287455",
+  location: "Kisii Town, Kisii",
+  lat: -0.6765765971166046,
+  lng: 34.77214077728914,
 };
